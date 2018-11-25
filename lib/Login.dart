@@ -1,5 +1,6 @@
 import  'package:flutter/material.dart';
 import 'Register.dart';
+import 'ForgetPsw.dart';
 void main() {
   runApp(new MaterialApp(
     title: '登录',
@@ -7,6 +8,10 @@ void main() {
       primarySwatch: Colors.blue,
     ),
     home: new LoginPage (),
+    routes: <String, WidgetBuilder>{
+      '/register':(BuildContext context) => RegisterPage(),
+      '/forgetPsw': (BuildContext context) => ForgetPswPage()
+    },
   ));
 }
 
@@ -44,7 +49,7 @@ class _State extends State<LoginPage> {
             style: hintTips,
               controller: _userNameController,
             decoration: new InputDecoration(hintText: "用户名|邮箱|手机号码"),
-            obscureText: true,
+            obscureText: false,
           ),
           ),
           new Padding(
@@ -93,8 +98,7 @@ Align buildRegisterText(BuildContext context) {
             style: TextStyle(color: Colors.green),
           ),
           onTap: (){
-            print('去注册');
-            Navigator.pop(context);
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => new RegisterPage()));
           },
         )
       ],
@@ -112,7 +116,7 @@ Padding buildForgetPasswordText(BuildContext context) {
           style: TextStyle(fontSize: 14.0, color: Colors.grey),
         ),
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.push(context, new MaterialPageRoute(builder: (context) => new ForgetPswPage()));
         },
       ),
     ),
