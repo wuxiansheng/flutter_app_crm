@@ -26,7 +26,7 @@ class _State extends State<LoginPage> {
   var topBottomPadding = 4.0;
   var textTips = new TextStyle(fontSize: 16.0, color: Colors.black);
   var hintTips = new TextStyle(fontSize: 15.0, color: Colors.black26);
-  static const LOGO = "images/timg.jpg";
+  static const LOGO = "images/logo.jpg";
   var _userPassController = new TextEditingController();
   var _userNameController = new TextEditingController();
   @override
