@@ -45,8 +45,7 @@ class _State extends State<RegisterPage> {
               style: textTips,
               decoration: new InputDecoration(hintText: "密码"),
             ),),
-          new Padding(padding: new EdgeInsets.fromLTRB(leftRightPadding, 50, leftRightPadding, topBottomPadding,),),
-          new Padding(padding: new EdgeInsets.fromLTRB(leftRightPadding, 50, leftRightPadding, topBottomPadding),
+          new Padding(padding: new EdgeInsets.fromLTRB(leftRightPadding, 50, leftRightPadding, topBottomPadding,),
             child: new TextField(
               style: textTips,
               decoration: new InputDecoration(hintText: "确认密码"),
