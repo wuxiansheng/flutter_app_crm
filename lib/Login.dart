@@ -1,4 +1,5 @@
 import  'package:flutter/material.dart';
+import 'package:groovin_material_icons/groovin_material_icons.dart';
 import 'Register.dart';
 import 'ForgetPsw.dart';
 void main() {
@@ -17,6 +18,20 @@ void main() {
 
 class LoginPage  extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
+  final List _loginMethod = [
+    {
+      "title":"wechat",
+      "icon": GroovinMaterialIcons.wechat
+    },
+    {
+      "title":"google",
+      "icon": GroovinMaterialIcons.google
+    },
+    {
+      "title": "qq",
+      "icon": GroovinMaterialIcons.qqchat
+    }
+  ];
   @override
   _State createState() => new _State( );
 }
@@ -79,6 +94,8 @@ class _State extends State<LoginPage> {
           ),
 
           buildRegisterText(context),
+          buildOtherLoginText(),
+          buildOtherMethod(context),
         ],
       ),
     );
@@ -120,5 +137,31 @@ Padding buildForgetPasswordText(BuildContext context) {
         },
       ),
     ),
+  );
+}
+Align buildOtherLoginText() {
+  return Align(
+      alignment: Alignment.center,
+      child: Text(
+        '其他账号登录',
+        style: TextStyle(color: Colors.grey, fontSize: 14.0),
+      ));
+}
+ButtonBar buildOtherMethod(BuildContext context) {
+  return ButtonBar(
+    alignment: MainAxisAlignment.center,
+    children: _loginMethod
+      .map((item) => Builder(builder: (context){
+        return IconButton(
+          icon: Icon(item['icon'],
+          color: Theme.of(context).iconTheme.color,),
+          onPressed: (){
+            Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("${item['title']}登录"),
+            action: new SnackBarAction(label: "取消", onPressed: (){},
+            ),
+            ));
+        });
+        },
+  )).toList(),
   );
 }
