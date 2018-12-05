@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'Find.dart';
 import 'UserInfo.dart';
+import 'Customer.dart';
 void main() {
   runApp(new MaterialApp(
     title: 'Tabs',
@@ -27,7 +28,7 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin{
   void initState() {
     // TODO: implement initState
     super.initState();
-    controller = new TabController(length: 3, vsync: this);
+    controller = new TabController(length: 4, vsync: this);
   }
   @override
   void dispose() {
@@ -43,6 +44,7 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin{
           children: [
             new HomePage(),
             new FindPage(),
+            new CustomerPage(),
             new UserInfo(),
           ]),
       bottomNavigationBar: new Material(
@@ -56,6 +58,10 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin{
             new Tab(
               text: "发现",
               icon: new Icon(Icons.search,),),
+            new Tab(
+              text: "客户管理",
+              icon: new Icon(Icons.view_list),
+            ),
             new Tab(
               text: "个人中心",
               icon: new Icon(Icons.perm_contact_calendar,),),

@@ -17,8 +17,12 @@ void main() {
 }
 
 class LoginPage  extends StatefulWidget {
-  LoginPage({Key key}) : super(key: key);
-  final List _loginMethod = [
+  @override
+  _State createState() => new _State( );
+}
+class _State extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  List _loginMethod = [
     {
       "title":"wechat",
       "icon": GroovinMaterialIcons.wechat
@@ -32,11 +36,6 @@ class LoginPage  extends StatefulWidget {
       "icon": GroovinMaterialIcons.qqchat
     }
   ];
-  @override
-  _State createState() => new _State( );
-}
-
-class _State extends State<LoginPage> {
   var leftRightPadding = 30.0;
   var topBottomPadding = 4.0;
   var textTips = new TextStyle(fontSize: 16.0, color: Colors.black);
@@ -54,12 +53,11 @@ class _State extends State<LoginPage> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          new Padding(
-              padding: new EdgeInsets.fromLTRB(leftRightPadding, 50.0, leftRightPadding, 10.0),
+          new Expanded(
           child:  new Image.asset(LOGO),
           ),
-          new Padding(
-              padding: new EdgeInsets.fromLTRB(leftRightPadding, 50.0, leftRightPadding, topBottomPadding ),
+          new Expanded(
+            flex: 1,
           child: new TextField(
             style: hintTips,
               controller: _userNameController,
@@ -67,9 +65,8 @@ class _State extends State<LoginPage> {
             obscureText: false,
           ),
           ),
-          new Padding(
-              padding: new EdgeInsets.fromLTRB(leftRightPadding, 30.0, leftRightPadding, topBottomPadding),
-          child: new TextField(
+          new Expanded(
+            child: new TextField(
             style: hintTips,
             controller: _userPassController,
             decoration: new InputDecoration(hintText: "密码"),
@@ -95,7 +92,6 @@ class _State extends State<LoginPage> {
 
           buildRegisterText(context),
           buildOtherLoginText(),
-          buildOtherMethod(context),
         ],
       ),
     );
@@ -104,7 +100,7 @@ class _State extends State<LoginPage> {
 Align buildRegisterText(BuildContext context) {
   return Align(
     alignment: Alignment.center,
-    child: Padding(padding: EdgeInsets.only(top: 10.0),
+    child: Padding(padding: EdgeInsets.only(top: 5.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -147,21 +143,4 @@ Align buildOtherLoginText() {
         style: TextStyle(color: Colors.grey, fontSize: 14.0),
       ));
 }
-ButtonBar buildOtherMethod(BuildContext context) {
-  return ButtonBar(
-    alignment: MainAxisAlignment.center,
-    children: _loginMethod
-      .map((item) => Builder(builder: (context){
-        return IconButton(
-          icon: Icon(item['icon'],
-          color: Theme.of(context).iconTheme.color,),
-          onPressed: (){
-            Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("${item['title']}登录"),
-            action: new SnackBarAction(label: "取消", onPressed: (){},
-            ),
-            ));
-        });
-        },
-  )).toList(),
-  );
-}
+

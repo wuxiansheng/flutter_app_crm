@@ -21,17 +21,11 @@ class _State extends State<UserInfo> {
     return new Scaffold(
         appBar: new AppBar(
           title: new Text('个人中心'),
+          actions: <Widget>[
+           IconButton(icon: new Icon(Icons.settings),color: Colors.black, onPressed: null)
+          ],
         ),
-      body: new Center(
-        child: new RaisedButton(
-          onPressed: (){
-          Navigator.push(context, new MaterialPageRoute(builder: (context) => new LoginPage()));
-        },
-          child: new Text("登陆"),
-          color: Colors.blue,
-          highlightColor: Colors.lightBlue,
-        ),
-      ),
+      body: null,
     );
   }
 }
