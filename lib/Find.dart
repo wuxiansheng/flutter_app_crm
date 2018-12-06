@@ -20,10 +20,10 @@ class _State extends State<FindPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('发现'),
+          title: new Text('动态'),
         ),
         body: new Center(
-          child: new Text('发现'),
+          child: new Text('动态'),
         )
     );
   }

@@ -20,12 +20,21 @@ class _State extends State<UserInfo> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('个人中心'),
           actions: <Widget>[
            IconButton(icon: new Icon(Icons.settings),color: Colors.black, onPressed: null)
           ],
         ),
-      body: null,
+      body: new Column(
+        children: <Widget>[
+          new Center(
+            child: new RaisedButton(
+              onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new LoginPage()));
+            }, color: Colors.lightBlue,textColor: Colors.white,
+            child: new Text("登陆"),),
+          )
+        ],
+      ),
     );
   }
 }

@@ -21,21 +21,7 @@ class LoginPage  extends StatefulWidget {
   _State createState() => new _State( );
 }
 class _State extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
-  List _loginMethod = [
-    {
-      "title":"wechat",
-      "icon": GroovinMaterialIcons.wechat
-    },
-    {
-      "title":"google",
-      "icon": GroovinMaterialIcons.google
-    },
-    {
-      "title": "qq",
-      "icon": GroovinMaterialIcons.qqchat
-    }
-  ];
+
   var leftRightPadding = 30.0;
   var topBottomPadding = 4.0;
   var textTips = new TextStyle(fontSize: 16.0, color: Colors.black);
@@ -92,6 +78,7 @@ class _State extends State<LoginPage> {
 
           buildRegisterText(context),
           buildOtherLoginText(),
+          buildOtherLoginButton(),
         ],
       ),
     );
@@ -142,5 +129,18 @@ Align buildOtherLoginText() {
         '其他账号登录',
         style: TextStyle(color: Colors.grey, fontSize: 14.0),
       ));
+}
+Align buildOtherLoginButton() {
+  return Align(
+    alignment: Alignment.center,
+    child: new Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        new Icon(GroovinMaterialIcons.wechat, color: Colors.green,size: 26.0,),
+        new Icon(GroovinMaterialIcons.facebook, color: Colors.blueAccent,size: 26.0,),
+        new Icon(GroovinMaterialIcons.qqchat, color: Colors.blue,size: 26.0,),
+      ]
+    ),
+  );
 }
 

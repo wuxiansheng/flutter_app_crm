@@ -56,7 +56,7 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin{
               text: "首页",
               icon: new Icon(Icons.home),),
             new Tab(
-              text: "发现",
+              text: "动态",
               icon: new Icon(Icons.search,),),
             new Tab(
               text: "客户管理",
